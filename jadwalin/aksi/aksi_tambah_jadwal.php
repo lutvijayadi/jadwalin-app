@@ -11,7 +11,7 @@ $query = "INSERT INTO jadwal (id, tanggal, acara, keterangan, lokasi)
           VALUES ('$id','$tanggal','$acara','$keterangan','$lokasi')";
 
 if (mysqli_query($koneksi, $query)) {
-    header("Location:../admin/manajement_warga.php");
+    header("Location:../admin/jadwal.kegiatan.php");
 } else {
     echo "Error: " . mysqli_error($koneksi);
 }

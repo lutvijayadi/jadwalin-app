@@ -1,17 +1,17 @@
 <?php
+
 include '../koneksi/koneksi.php';
 
 $id = $_POST['id'];
-$tanggal = $_POST['tanggal'];
-$acara = $_POST['acara'];
+$judul = $_POST['judul'];
 $keterangan = $_POST['keterangan'];
-$lokasi = $_POST['lokasi'];
+$tanggal_publikasi = $_POST['tanggal_publikasi'];
 
-$query = "INSERT INTO jadwal (id, tanggal, acara, keterangan, lokasi) 
-          VALUES ('$id','$tanggal','$acara','$keterangan','$lokasi')";
+$query = "INSERT INTO pengumuman (id, judul, keterangan, tanggal_publikasi)
+          VALUES ('$id','$judul','$keterangan','$tanggal_publikasi')";
 
 if (mysqli_query($koneksi, $query)) {
-    header("Location: ../index/admin.php"); 
+    header("Location:../admin/pengumuman.php");
 } else {
     echo "Error: " . mysqli_error($koneksi);
 }

@@ -114,6 +114,10 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
             </ul>
         </div>
 
+         <a href="../index/cetak1.php" id="print" class="bg-blue-500 text-white p-2 rounded mb-4 ml-4">
+                    Cetak Jadwal
+                </a>
+
         <!-- Logout Link (Moved to bottom of sidebar) -->
         <a href="../aksi/logout.php"
             class="flex items-center gap-3 py-3 px-4 rounded-xl bg-indigo-400 text-white font-semibold hover:bg-red-500 transition duration-200 justify-center shadow-lg">
@@ -122,6 +126,7 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
             Logout
         </a>
     </div>
+        
 
     <!-- Content Area -->
     <div class="ml-64 w-full flex flex-col">
@@ -327,9 +332,7 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
                         <?php } ?>
                     </tbody>
                 </table>
-                <button id="print" class="bg-blue-500 text-white p-2 rounded mb-4 ml-4">
-                    Cetak Jadwal
-                </button>
+               
             </div>
         </div>
     </div>

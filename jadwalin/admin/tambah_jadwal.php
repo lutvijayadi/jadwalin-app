@@ -153,9 +153,9 @@ $inisial = "A";
                 <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-3">Input Detail Kegiatan Baru</h2>
                 
                 <!-- Action diatur ke aksi_tambah_jadwal.php untuk proses database -->
-                <form action="../aksi/aksi_tambah.php" method="POST" class="space-y-6">
+                <form action="../aksi/aksi_tambah_jadwal.php" method="POST" class="space-y-6">
                     
-                    <!-- Nama Kegiatan (Kolom: acara) - Diubah dari nama_kegiatan -->
+                    
                     <div>
                         <label for="id" class="block text-base font-semibold text-gray-700 mb-2">id<span class="text-red-500">*</span></label>
                         <input type="number" id="id" name="id" required

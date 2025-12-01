@@ -139,7 +139,7 @@ include '../koneksi/koneksi.php';
                 </div>
 
                 <!-- Ganti ke link yang benar untuk tambah jadwal -->
-                <a href="../aksi/aksi_tambah.php"
+                <a href="../admin/tambah_jadwal.php"
                     class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 flex items-center gap-2 shadow-lg transition transform hover:scale-105">
                     <i data-feather="plus" class="w-5 h-5"></i>
                     Tambah Jadwal
