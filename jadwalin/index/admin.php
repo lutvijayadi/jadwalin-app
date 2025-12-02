@@ -114,9 +114,7 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
             </ul>
         </div>
 
-         <a href="../index/cetak1.php" id="print" class="bg-blue-500 text-white p-2 rounded mb-4 ml-4">
-                    Cetak Jadwal
-                </a>
+         
 
         <!-- Logout Link (Moved to bottom of sidebar) -->
         <a href="../aksi/logout.php"
