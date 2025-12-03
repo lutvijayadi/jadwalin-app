@@ -124,7 +124,7 @@
 
       <!-- Footer Modal (opsional: link daftar) -->
       <div class="p-6 border-t border-gray-700 text-center">
-        <p class="text-sm text-gray-400">Belum punya akun? <a href="#registrasi.php"
+        <p class="text-sm text-gray-400">Belum punya akun? <a href="../index/registrasi.php"
             class="text-blue-500 hover:underline">Daftar di
             sini</a></p>
       </div>

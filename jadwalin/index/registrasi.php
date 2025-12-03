@@ -1,95 +1,129 @@
-<?php
-
-require_once("config.php");
-
-if(isset($_POST['register'])){
-
-    // filter data yang diinputkan
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    // enkripsi password
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-
-
-    // menyiapkan query
-    $sql = "INSERT INTO users (name, username, email, password) 
-            VALUES (:name, :username, :email, :password)";
-    $stmt = $db->prepare($sql);
-
-    // bind parameter ke query
-    $params = array(
-        ":name" => $name,
-        ":username" => $username,
-        ":password" => $password,
-        ":email" => $email
-    );
-
-    // eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
-
-    // jika query simpan berhasil, maka user sudah terdaftar
-    // maka alihkan ke halaman login
-    if($saved) header("Location: login.php");
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register Pesbuk</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar - Jadwalin</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Styling untuk meniru overlay modal dari index.php */
+        .modal-overlay {
+            background-color: rgba(194, 190, 190, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-enter {
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Menyesuaikan warna input agar mirip foto (Putih dengan teks hitam/dark) */
+        .input-dark {
+            /* Meniru input putih yang digunakan di modal login pada foto */
+            background-color: white; 
+            border: 1px solid #e5e7eb; /* border gray-200 */
+            color: black; /* Teks input berwarna hitam */
+            padding-left: 0.75rem; /* px-3 */
+            padding-right: 0.75rem; /* px-3 */
+        }
+    </style>
 </head>
-<body class="bg-light">
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6">
+<body class="bg-gray-100 text-black">
+    
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
 
-        <p>&larr; <a href="index.php">Home</a>
-
-        <h4>Bergabunglah bersama ribuan orang lainnya...</h4>
-        <p>Sudah punya akun? <a href="login.php">Login di sini</a></p>
-
-        <form action="regista" method="POST">
-
-            <div class="form-group">
-                <label for="name">Nama Lengkap</label>
-                <input class="form-control" type="text" name="name" placeholder="Nama kamu" />
-            </div>
-
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input class="form-control" type="text" name="username" placeholder="Username" />
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input class="form-control" type="email" name="email" placeholder="Alamat Email" />
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input class="form-control" type="password" name="password" placeholder="Password" />
-            </div>
-
-            <input type="submit" class="btn btn-success btn-block" name="register" value="Daftar" />
-
-        </form>
+        <div class="relative bg-neutral-800 rounded-lg shadow-xl max-w-md w-full mx-4 modal-enter">
             
-        </div>
+            <div class="flex justify-between items-center p-6 border-b border-gray-700">
+                <h2 class="text-xl font-bold text-white">Daftar Akun Baru Jadwalin</h2>
+                <a href="../index/index.php" class="text-gray-400 hover:text-white text-2xl">×</a>
+            </div>
 
-        <div class="col-md-6">
-            <img class="img img-responsive" src="img/connect.png" />
-        </div>
+            <?php
+            // Pastikan Anda telah membuat aksi_registrasi.php dan file koneksi/koneksi.php
+            if (isset($_GET['pesan'])) {
+                if ($_GET['pesan'] == "gagal_username") {
+                    // Warna teks merah di latar gelap
+                    echo '<div class="p-4 text-red-400 bg-neutral-700 text-sm text-center">Username **sudah terdaftar**!</div>';
+                } elseif ($_GET['pesan'] == "berhasil") {
+                    // Warna teks hijau di latar gelap
+                    echo '<div class="p-4 text-green-400 bg-neutral-700 text-sm text-center">Registrasi **berhasil**! Silakan <a href="../index/index.php" class="font-bold text-blue-500 hover:underline">Login</a>.</div>';
+                } elseif ($_GET['pesan'] == "gagal_simpan") {
+                    echo '<div class="p-4 text-red-400 bg-neutral-700 text-sm text-center">Registrasi **gagal**! Terjadi kesalahan pada database.</div>';
+                }
+            }
+            ?>
 
+            <form action="../aksi/aksi_registrasi.php" method="POST" class="p-6">
+                
+                <div class="mb-4">
+                    <label for="nama" class="block text-sm font-medium text-gray-300 mb-2">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required
+                        class="w-full px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 input-dark"
+                        placeholder="Masukkan Nama Lengkap Anda">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-gray-300 mb-2">Username</label>
+                    <input type="text" id="username" name="username" required
+                        class="w-full px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 input-dark"
+                        placeholder="Pilih Username">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                    <input type="password" id="password" name="password" required
+                        class="w-full px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 input-dark"
+                        placeholder="Masukkan Password">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="level" class="block text-sm font-medium text-gray-300 mb-2">Pilih Level Akun</label>
+                    <select id="level" name="level" required
+                        class="w-full px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 input-dark">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                
+                <button type="submit"
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition">
+                    Daftar Sekarang
+                </button>
+            </form>
+
+            <div class="p-6 border-t border-gray-700 text-center">
+                <p class="text-sm text-gray-400">Sudah punya akun? 
+                    <a href="../index/index.php" class="text-blue-500 hover:underline">Login di sini</a>
+                </p>
+            </div>
+        </div>
     </div>
-</div>
-
 </body>
+
 </html>

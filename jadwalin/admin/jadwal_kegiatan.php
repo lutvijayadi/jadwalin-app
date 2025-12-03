@@ -170,10 +170,10 @@ include '../koneksi/koneksi.php';
                         if (mysqli_num_rows($data) > 0) {
                             while ($d = mysqli_fetch_assoc($data)) {
                                 ?>
-                                <tr class="border-b last:border-b-0 hover:bg-blue-50 transition duration-150 ease-in-out">
+                                <tr class="border-b last:border-b-0 hover:bg-gray-50 transition duration-150 ease-in-out">
                                     <td class="p-4 text-gray-600 font-mono"><?= $d['id'] ?></td>
                                     <td class="p-4 text-gray-700 font-medium"><?= $d['tanggal'] ?></td>
-                                    <td class="p-4 font-extrabold text-blue-800"><?= $d['acara'] ?></td>
+                                    <td class="p-4 font-medium text-gray-800"><?= $d['acara'] ?></td>
                                     <td class="p-4 text-gray-500 text-sm max-w-xs truncate"><?= $d['keterangan'] ?></td>
                                     <td class="p-4 text-gray-700"><?= $d['lokasi'] ?></td>
                                     <td class="p-4 flex gap-3 justify-center items-center">

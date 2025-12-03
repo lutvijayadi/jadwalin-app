@@ -112,7 +112,7 @@ include '../koneksi/koneksi.php';
         <!-- Top Header Bar -->
         <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
             <div class="flex items-center gap-2 text-xl font-semibold text-gray-700">
-                <span class="text-green-600">
+                <span class="text-blue-600">
                     <i data-feather="settings" class="w-6 h-6"></i>
                 </span>
                 Pengaturan Sistem
@@ -135,7 +135,7 @@ include '../koneksi/koneksi.php';
             <div class="max-w-4xl space-y-8">
 
                 <!-- Section 1: Pengaturan Profil Admin -->
-                <div class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-green-500">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-blue-500">
                     <h3 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Profil Akun Anda</h3>
 
                     <form action="#" method="POST" class="space-y-4">
@@ -155,7 +155,7 @@ include '../koneksi/koneksi.php';
                             <p class="text-xs text-gray-500 mt-1">Email tidak dapat diubah.</p>
                         </div>
                         <button type="submit"
-                            class="mt-4 px-6 py-2 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition duration-200 shadow-md">
+                            class="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl hover:bg-green-700 transition duration-200 shadow-md">
                             Simpan Perubahan Profil
                         </button>
                     </form>
@@ -195,7 +195,7 @@ include '../koneksi/koneksi.php';
                 </div>
 
                 <!-- Section 3: Pengaturan Aplikasi -->
-                <div class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-yellow-500">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-blue-500">
                     <h3 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Preferensi Aplikasi</h3>
 
                     <div class="space-y-4">
@@ -203,7 +203,7 @@ include '../koneksi/koneksi.php';
                             <label for="notifikasi" class="text-base font-medium text-gray-700">Aktifkan Notifikasi
                                 Pengumuman</label>
                             <input type="checkbox" id="notifikasi" name="notifikasi" checked
-                                class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                                class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                         </div>
                         <div class="flex items-center justify-between p-3 border rounded-lg">
                             <label for="mode_gelap" class="text-base font-medium text-gray-700">Mode Tampilan
@@ -212,7 +212,7 @@ include '../koneksi/koneksi.php';
                                 class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500">
                         </div>
                         <button
-                            class="mt-4 px-6 py-2 bg-yellow-600 text-white font-semibold rounded-xl hover:bg-yellow-700 transition duration-200 shadow-md">
+                            class="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition duration-200 shadow-md">
                             Simpan Preferensi
                         </button>
                     </div>

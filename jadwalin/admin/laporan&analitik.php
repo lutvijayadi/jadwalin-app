@@ -131,7 +131,7 @@ $total_pengumuman = number_format((int)$d_total_pengumuman['total'], 0, ',', '.'
 
         <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
             <div class="flex items-center gap-2 text-xl font-semibold text-gray-700">
-                <span class="text-green-600">
+                <span class="text-blue-600">
                     <i data-feather="bar-chart-2" class="w-6 h-6"></i>
                 </span>
                 Laporan & Analitik
@@ -194,7 +194,7 @@ $total_pengumuman = number_format((int)$d_total_pengumuman['total'], 0, ',', '.'
                 <div
                     class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-blue-500 transition duration-300 hover:shadow-2xl">
                     <div class="flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-500">Rata-rata Partisipasi (Simulasi)</span>
+                        <span class="text-sm font-medium text-gray-500">Rata-rata Partisipasi</span>
                         <i data-feather="trending-up" class="w-6 h-6 text-blue-500"></i>
                     </div>
                     <div class="mt-1">
@@ -227,7 +227,7 @@ $total_pengumuman = number_format((int)$d_total_pengumuman['total'], 0, ',', '.'
 
                 <div class="bg-white p-6 rounded-2xl shadow-xl">
                     <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Distribusi Status Warga (Real)</h3>
-                    <div class="flex justify-center h-80">
+                    <div class="h-80 flex items-center justify-center">
                         <canvas id="doughnutChart" class="max-w-full"></canvas>
                     </div>
 
@@ -344,9 +344,9 @@ $total_pengumuman = number_format((int)$d_total_pengumuman['total'], 0, ',', '.'
                 datasets: [{
                     data: [<?php echo $raw_total_kk; ?>, <?php echo $raw_total_anggota; ?>, <?php echo $raw_total_pendatang; ?>],
                     backgroundColor: [
-                        'rgba(22, 163, 74, 0.9)',  // Green
+                        'rgba(7, 96, 155, 0.9)',  // Green
                         'rgba(59, 130, 246, 0.9)', // Blue
-                        'rgba(249, 115, 22, 0.9)'  // Orange
+                        'rgba(128, 119, 113, 0.9)'  // Orange
                     ],
                     hoverOffset: 4
                 }]

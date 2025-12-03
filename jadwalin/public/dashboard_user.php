@@ -136,7 +136,7 @@ $inisial = strtoupper(substr($nama_warga, 0, 1));
                 </li>
                 <!-- Pengaturan Link -->
                 <li>
-                    <a href="../public/pengaturan_user.php"
+                    <a href="../pengaturan/pengaturan_user.php"
                         class="flex items-center gap-3 py-3 px-4 rounded-xl text-white font-medium hover:bg-blue-700 transition duration-200">
                         <i data-feather="settings" class="w-5 h-5"></i>
                         Pengaturan
@@ -190,12 +190,12 @@ $inisial = strtoupper(substr($nama_warga, 0, 1));
         <div class="p-8 pt-0 flex-grow space-y-8">
 
             <!-- Welcome Card -->
-            <div class="bg-white p-8 rounded-2xl shadow-xl border-l-4 border-green-500">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border-l-4 border-blue-500">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2">Halo, <?= $nama_warga ?>!</h2>
                 <p class="text-gray-600">Selamat datang kembali di portal WargaKita. Mari kita jaga kebersamaan
                     lingkungan RT 05.</p>
                 <div class="mt-4 pt-4 border-t border-gray-100 flex items-center gap-2 text-sm text-gray-500">
-                    <i data-feather="map-pin" class="w-4 h-4 text-green-500"></i>
+                    <i data-feather="map-pin" class="w-4 h-4 text-gray-500"></i>
                     Lokasi Anda: <?= $alamat ?>
                 </div>
             </div>
@@ -203,10 +203,10 @@ $inisial = strtoupper(substr($nama_warga, 0, 1));
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                 <!-- Section: Berita & Pengumuman Terbaru (Card) -->
-                <div class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-yellow-500">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border-t-4 border-blue-500">
                     <div class="flex justify-between items-center mb-4 border-b pb-3">
                         <h3 class="text-xl font-bold text-gray-700 flex items-center gap-2">
-                            <i data-feather="rss" class="w-5 h-5 text-yellow-600"></i>
+                            <i data-feather="rss" class="w-5 h-5 text-blue-600"></i>
                             Berita & Pengumuman Terbaru
                         </h3>
                         <a href="../public/pengumuman_user.php"
@@ -218,7 +218,7 @@ $inisial = strtoupper(substr($nama_warga, 0, 1));
                         <?php if (count($pengumuman_data) > 0): ?>
                             <?php foreach ($pengumuman_data as $p): ?>
                                 <div
-                                    class="p-4 bg-yellow-50 rounded-lg border border-yellow-200 shadow-sm hover:shadow-md transition duration-200">
+                                    class="p-4 bg-blue-50 rounded-lg border border-blue-200 shadow-sm hover:shadow-md transition duration-200">
                                     <h4 class="text-lg font-semibold text-yellow-800 mb-1"><?= htmlspecialchars($p['judul']) ?>
                                     </h4>
                                     <p class="text-xs text-gray-500 mb-2 flex items-center gap-1">
