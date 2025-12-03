@@ -144,7 +144,8 @@ include '../koneksi/koneksi.php';
                     <i data-feather="plus" class="w-5 h-5"></i>
                     Tambah Jadwal
                 </a>
-                <a href="../assets/cetak/cetak_jadwal.php" id="print" class="bg-blue-500 text-white p-2 rounded mb-4 ml-4">
+                <a href="../assets/cetak/cetak_jadwal.php" id="print"
+                    class="bg-blue-500 text-white p-2 rounded mb-4 ml-4">
                     Cetak Jadwal
                 </a>
             </div>
@@ -177,7 +178,7 @@ include '../koneksi/koneksi.php';
                                     <td class="p-4 text-gray-700"><?= $d['lokasi'] ?></td>
                                     <td class="p-4 flex gap-3 justify-center items-center">
                                         <a href="../admin/edit_jadwal.php?id=<?= $d['id'] ?>"
-                                            class="p-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition shadow-md text-sm transform hover:scale-105"
+                                            class="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-300 transition shadow-md text-sm transform hover:scale-105"
                                             title="Edit Jadwal">
                                             <i data-feather="edit" class="w-4 h-4"></i>
                                         </a>

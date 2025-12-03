@@ -129,7 +129,7 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
     <!-- Content Area -->
     <div class="ml-64 w-full flex flex-col">
 
-        <!-- Top Header Bar -->
+        
         <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
             <div class="flex items-center gap-2 text-xl font-semibold text-gray-700">
                 <span class="text-blue-600">
@@ -138,7 +138,7 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
                 Dashboard Utama
             </div>
             <div class="flex items-center gap-3">
-                <a href="../index/propil.php" class="text-sm font-medium text-gray-500">Admin</a>
+                <a href="../profil/profil_admin.php" class="text-sm font-medium text-gray-500">Admin</a>
                 <div
                     class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
                     A
@@ -151,13 +151,13 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
         <div class="p-8 flex-grow">
             <h2 class="text-2xl font-bold mb-4 text-gray-800">RINGKASAN</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <!-- Card 1: Total Warga Terdaftar -->
+                <!-- Card 1 Total Warga Terdaftar -->
                 <div
                     class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 transform hover:scale-105 transition duration-300">
                     <p class="text-sm font-medium text-gray-500">Total Warga Terdaftar</p>
-                    <h3 class="text-4xl font-extrabold text-blue-800 mt-1">
+                    <h3 class="text-4xl font-extrabold text-black-400 mt-1">
                         <?php
-                        //hitung query
+                        // Hitung total warga terdaftar
                         $data = mysqli_query($koneksi, "SELECT * FROM warga ORDER BY id DESC");
                         $total_jadwal = mysqli_num_rows($data);
                         echo number_format($total_jadwal);
@@ -167,9 +167,9 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
                 </div>
                 <!-- Card 2: Kegiatan Mendatang -->
                 <div
-                    class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-500 transform hover:scale-105 transition duration-300">
+                    class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 transform hover:scale-105 transition duration-300">
                     <p class="text-sm font-medium text-gray-500">Kegiatan Mendatang</p>
-                    <h3 class="text-4xl font-extrabold text-yellow-700 mt-1">
+                    <h3 class="text-4xl font-extrabold text-black-400 mt-1">
                         <?php
                         // Hitung total kegiatan mendatang 
                         $query_mendatang = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM jadwal WHERE tanggal > CURDATE()");
@@ -181,16 +181,23 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
                 </div>
                 <!-- Card 3: Pengumuman Aktif -->
                 <div
-                    class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-500 transform hover:scale-105 transition duration-300">
+                    class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 transform hover:scale-105 transition duration-300">
                     <p class="text-sm font-medium text-gray-500">Pengumuman Aktif</p>
-                    <h3 class="text-4xl font-extrabold text-green-700 mt-1">5</h3>
+                    <h3 class="text-4xl font-extrabold text-black-400 mt-1">
+                         <?php
+                        // Hitung total kegiatan mendatang 
+                        $query_mendatang = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM pengumuman WHERE id > CURDATE()");
+                        $row_mendatang = mysqli_fetch_assoc($query_mendatang);
+                        echo number_format($row_mendatang['total']);
+                        ?>
+                    </h3>
                     <p class="text-xs text-gray-400 mt-2">Sedang tayang</p>
                 </div>
                 <!-- Card 4: Total Laporan Masuk -->
                 <div
-                    class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500 transform hover:scale-105 transition duration-300">
+                    class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 transform hover:scale-105 transition duration-300">
                     <p class="text-sm font-medium text-gray-500">Total Laporan Masuk</p>
-                    <h3 class="text-4xl font-extrabold text-purple-700 mt-1">78</h3>
+                    <h3 class="text-4xl font-extrabold text-black-400 mt-1">5</h3>
                     <p class="text-xs text-gray-400 mt-2">Perlu ditindaklanjuti</p>
                 </div>
             </div>
@@ -265,7 +272,7 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
             </div>
 
             <!-- MANAJEMEN WARGA (Digantikan oleh Kelola Jadwal yang Anda miliki, agar logika PHP tetap ada) -->
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">KELOLA JADWAL (Modul Utama File Ini)</h2>
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">KELOLA JADWAL</h2>
             <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
                 <div class="relative w-full sm:w-1/3">
                     <input type="text" placeholder=" Cari acara..."
@@ -286,7 +293,7 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
             <!-- Table Card (Mempertahankan Logic PHP Anda) -->
             <div class="bg-white shadow-2xl rounded-2xl overflow-hidden">
                 <table class="w-full text-left border-collapse">
-                    <thead class="bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-inner">
+                    <thead class="bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-inner">
                         <tr>
                             <th class="p-4 text-sm font-bold uppercase tracking-wider">ID</th>
                             <th class="p-4 text-sm font-bold uppercase tracking-wider">Tanggal</th>
@@ -311,12 +318,12 @@ while ($row = mysqli_fetch_assoc($query_chart)) {
                                     <td class="p-4 text-gray-700"><?= $d['lokasi'] ?></td>
                                     <td class="p-4 flex gap-3 justify-center items-center">
                                         <a href="edit.php?id=<?= $d['id'] ?>"
-                                            class="p-2 bg-indigo-600 text-white rounded-lg hover:bg-yellow-600 transition shadow-md text-sm transform hover:scale-105">
+                                            class="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-300 transition shadow-md text-sm transform hover:scale-105">
                                             <i data-feather="edit" class="w-4 h-4"></i>
                                         </a>
                                         <a href="../aksi/aksi_hapus.php?id=<?= $d['id']; ?>"
                                             onclick="return confirm('Yakin ingin menghapus pengumuman: <?= $d['acara']; ?>?')"
-                                            class="p-2 bg-red-500 text-white rounded-lg hover:bg-red-500 transition shadow-md text-sm transform hover:scale-105">
+                                            class="p-2 bg-red-500 text-white rounded-lg hover:bg-red-300 transition shadow-md text-sm transform hover:scale-105">
                                             <i data-feather="trash-2" class="w-4 h-4"></i>
                                         </a>
                                     </td>

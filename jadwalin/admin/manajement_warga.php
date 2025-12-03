@@ -150,7 +150,7 @@ $data_warga = mysqli_query($koneksi, "SELECT * FROM warga ORDER BY id DESC");
             <!-- Table Card -->
             <div class="bg-white shadow-2xl rounded-2xl overflow-hidden">
                 <table class="w-full text-left border-collapse">
-                    <thead class="bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-inner">
+                    <thead class="bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-inner">
                         <tr>
                             <th class="p-4 text-sm font-bold uppercase tracking-wider">ID</th>
                             <th class="p-4 text-sm font-bold uppercase tracking-wider">Nama</th>
@@ -166,8 +166,8 @@ $data_warga = mysqli_query($koneksi, "SELECT * FROM warga ORDER BY id DESC");
                         if (mysqli_num_rows($data_warga) > 0) {
                             while ($d = mysqli_fetch_assoc($data_warga)) {
                                 $status_color = match ($d['status']) {
-                                    'Aktif' => 'bg-green-100 text-green-800',
-                                    'Non-Aktif' => 'bg-red-100 text-red-800',
+                                    'warga' => 'bg-green-100 text-green-800',
+                                    'warga_pendatang' => 'bg-red-100 text-red-800',
                                     default => 'bg-gray-100 text-gray-800',
                                 };
                                 ?>
@@ -184,7 +184,7 @@ $data_warga = mysqli_query($koneksi, "SELECT * FROM warga ORDER BY id DESC");
                                     </td>
                                     <td class="p-4 flex gap-3 justify-center items-center">
                                         <a href="edit_warga.php?id=<?= $d['id'] ?>"
-                                            class="p-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition shadow-md text-sm transform hover:scale-105"
+                                            class="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-300 transition shadow-md text-sm transform hover:scale-105"
                                             title="Edit Data">
                                             <i data-feather="edit" class="w-4 h-4"></i>
                                         </a>

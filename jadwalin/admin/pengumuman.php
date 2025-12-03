@@ -111,7 +111,7 @@ $data_pengumuman = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY tan
         <!-- Top Header Bar -->
         <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
             <div class="flex items-center gap-2 text-xl font-semibold text-gray-700">
-                <span class="text-orange-600">
+                <span class="text-blue-600">
                     <i data-feather="bell" class="w-6 h-6"></i>
                 </span>
                 Kelola Pengumuman
@@ -173,13 +173,13 @@ $data_pengumuman = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY tan
                                     <td class="p-4 text-black-700 text-sm"><?= $d['tanggal_publikasi'] ?></td>
                                     <td class="p-4 flex gap-3 justify-center items-center">
                                         <a href="edit_pengumuman.php?id=<?= $d['id'] ?>"
-                                            class="p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-300 transition shadow-md text-sm transform hover:scale-105"
+                                            class="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-300 transition shadow-md text-sm transform hover:scale-105"
                                             title="Edit Pengumuman">
                                             <i data-feather="edit" class="w-4 h-4"></i>
                                         </a>
                                         <a href="../aksi/aksi_hapus_pengumuman.php?id=<?= $d['id']; ?>"
                                             onclick="return confirm('Yakin ingin menghapus pengumuman: <?= $d['judul']; ?>?')"
-                                            class="p-2 bg-red-500 text-white rounded-lg hover:bg-red-500 transition shadow-md text-sm transform hover:scale-105"
+                                            class="p-2 bg-red-500 text-white rounded-lg hover:bg-red-300 transition shadow-md text-sm transform hover:scale-105"
                                             title="Hapus Pengumuman">
                                             <i data-feather="trash-2" class="w-4 h-4"></i>
                                         </a>
